@@ -9,11 +9,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rubabe.task.adapter.Adapter
 import com.rubabe.task.databinding.ActivityMainBinding
-import com.rubabe.task.model.CarViewModel
+import com.rubabe.task.model.VehicleViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    lateinit var viewModel: CarViewModel
+    lateinit var viewModel: VehicleViewModel
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        viewModel = ViewModelProvider(this)[CarViewModel::class.java]
+        viewModel = ViewModelProvider(this)[VehicleViewModel::class.java]
 
-        viewModel.getCar(this@MainActivity, "json")
+        viewModel.getVehicle(this@MainActivity)
 
         viewModel.carLiveData.observe(this, Observer { CarData ->
             binding.recyclerView.adapter = viewModel.carLiveData.value?.Results?.let {
@@ -38,6 +38,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
 
 }
