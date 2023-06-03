@@ -14,5 +14,13 @@ interface Api {
     fun getCarData(@Query("format") format: String): Call<DTOResult>
 
     @GET("GetManufacturerDetails/{manufacturer}")
-    fun getGetManufacturerDetails(@Path("manufacturer") manufacturer: String, @Query("format") format: String): Call<GetManufacturerDetailsResults>
+    fun getGetManufacturerDetails(
+        @Path("manufacturer") manufacturer: String,
+        @Query("format") format: String
+    ): Call<GetManufacturerDetailsResults>
+
+    @GET("GetMakeForManufacturer/{manufacturer}")
+    fun getMakeForManufacturer(
+        @Path("manufacturer") manufacturer: String,
+        @Query("format") format: String): Call<GetManufacturerDetailsResults>
 }

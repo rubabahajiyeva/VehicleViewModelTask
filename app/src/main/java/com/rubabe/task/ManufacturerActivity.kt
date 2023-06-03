@@ -9,7 +9,7 @@ import com.rubabe.task.adapter.ManufacturerDetailsAdapter
 import com.rubabe.task.databinding.ActivityManufacturerDetailsBinding
 import com.rubabe.task.model.CarViewModel
 
-class ManufacturerDetailsActivity : AppCompatActivity() {
+class ManufacturerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManufacturerDetailsBinding
     lateinit var viewModel: CarViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
