@@ -1,4 +1,4 @@
-package com.rubabe.task.model
+package com.rubabe.task.viewmodel
 
 import android.content.Context
 import android.widget.Toast
@@ -6,6 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.rubabe.task.Constants
 import com.rubabe.task.api.Api
+import com.rubabe.task.model.DTOResult
+import com.rubabe.task.model.GetManufacturerDetailsResults
+import com.rubabe.task.model.GetModelsForMakeYearResult
+import com.rubabe.task.model.ManufacturerResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -68,13 +72,17 @@ class VehicleViewModel: ViewModel() {
     }
     fun getModelsForMakeYearDetails(context: Context, makeName: String, modelyear:String) {
         api = Constants.getApi()
-        var year:Int = modelyear.toInt()
+        val year:Int = modelyear.toInt()
         api.getModelsForMakeYear(makeName, year, Constants.FORMAT).enqueue(object : Callback<GetModelsForMakeYearResult> {
             override fun onResponse(
                 call: Call<GetModelsForMakeYearResult>,
                 response: Response<GetModelsForMakeYearResult>
             ) {
-                val data: GetModelsForMakeYearResult? = response.body()
+                //val data: List<GetModelsForMakeYear>? = response.body()?.Results
+              /* if(data?.isEmpty() == true){
+
+               }*/
+               val data: GetModelsForMakeYearResult? = response.body()
                 this@VehicleViewModel.byYearLiveData.postValue(data)
             }
 
@@ -83,6 +91,8 @@ class VehicleViewModel: ViewModel() {
             }
 
         })
+
     }
+
 
 }

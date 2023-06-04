@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Task"
         tools:targetApi="31">
         <activity
+            android:name=".ByVehicleTypeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ModelsForMakeYearActivity"
             android:exported="false" />
         <activity

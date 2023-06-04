@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
 
@@ -12,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rubabe.task.adapter.ManufacturerByYearAdapter
 import com.rubabe.task.databinding.ActivityModelsForMakeYearBinding
-import com.rubabe.task.model.VehicleViewModel
+import com.rubabe.task.viewmodel.VehicleViewModel
 
 class ModelsForMakeYearActivity : AppCompatActivity() {
     private lateinit var binding: ActivityModelsForMakeYearBinding
@@ -24,6 +23,7 @@ class ModelsForMakeYearActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityModelsForMakeYearBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         //Spinner
         val spinnerNameAdapter = ArrayAdapter<String>(this, R.layout.spinner_row,R.id.spinnerNameItem, manufacturerName)
         binding.spinnerName.adapter = spinnerNameAdapter
@@ -47,6 +47,15 @@ class ModelsForMakeYearActivity : AppCompatActivity() {
             viewModel.getModelsForMakeYearDetails(this@ModelsForMakeYearActivity, binding.spinnerName.selectedItem.toString(),binding.spinnerYear.selectedItem.toString())
 
         }
+
+    /*    fun showErrorDialog(error: String) {
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Error")
+                .setMessage(error)
+                .setPositiveButton("OK", null)
+                .show()
+        }*/
+
     }
 
 }

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rubabe.task.adapter.Adapter
 import com.rubabe.task.databinding.ActivityMainBinding
-import com.rubabe.task.model.VehicleViewModel
+import com.rubabe.task.viewmodel.VehicleViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

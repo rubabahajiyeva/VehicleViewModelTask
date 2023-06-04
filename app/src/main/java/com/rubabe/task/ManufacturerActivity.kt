@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rubabe.task.adapter.ManufacturerAdapter
 import com.rubabe.task.databinding.ActivityManufacturerBinding
-import com.rubabe.task.model.VehicleViewModel
+import com.rubabe.task.viewmodel.VehicleViewModel
 
 class ManufacturerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManufacturerBinding
