@@ -5,6 +5,7 @@ import com.rubabe.task.model.DTOResult
 import com.rubabe.task.model.GetManufacturerDetailsResults
 import com.rubabe.task.model.GetModelsForMakeYearResult
 import com.rubabe.task.model.ManufacturerResult
+import com.rubabe.task.model.VehicleTypeResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -30,4 +31,11 @@ interface Api {
     fun getModelsForMakeYear(@Path("makeName") makeName: String,
                              @Path("year") year: Int,
                              @Query("format") format: String): Call<GetModelsForMakeYearResult>
+
+    @GET("GetModelsForMakeYear/make/{makeName}/modelyear/{year}/vehicletype/{vehicleType}")
+    fun getVehicleType(@Path("makeName") makeName: String,
+                       @Path("year") year: Int,
+                       @Path("vehicleType") vehicleType: String,
+                       @Query("format") format: String): Call<VehicleTypeResult>
+
 }

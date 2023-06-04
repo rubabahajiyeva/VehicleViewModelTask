@@ -25,7 +25,7 @@ class ManufacturerDetailsActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[VehicleViewModel::class.java]
 
         binding.searchButton.setOnClickListener {
-            viewModel.getManufacturerDetails(this, binding.carTypeEditText.text.toString())
+            viewModel.getManufacturerDetails(this, binding.vehicleTypeEditText.text.toString())
         }
 
         viewModel.carManufacturerLiveData.observe(this, Observer { VehicleManufacturerDetails ->

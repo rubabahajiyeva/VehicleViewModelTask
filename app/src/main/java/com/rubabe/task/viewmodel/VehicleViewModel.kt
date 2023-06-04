@@ -10,6 +10,8 @@ import com.rubabe.task.model.DTOResult
 import com.rubabe.task.model.GetManufacturerDetailsResults
 import com.rubabe.task.model.GetModelsForMakeYearResult
 import com.rubabe.task.model.ManufacturerResult
+import com.rubabe.task.model.VehicleTypeDetails
+import com.rubabe.task.model.VehicleTypeResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +22,7 @@ class VehicleViewModel: ViewModel() {
     var carManufacturerLiveData = MutableLiveData<GetManufacturerDetailsResults>()
     var manufacturerLiveData = MutableLiveData<ManufacturerResult>()
     var byYearLiveData = MutableLiveData<GetModelsForMakeYearResult>()
+    var vehicleTypeLiveData = MutableLiveData<VehicleTypeResult>()
 
     fun getVehicle(context: Context) {
         api = Constants.getApi()
@@ -91,7 +94,22 @@ class VehicleViewModel: ViewModel() {
             }
 
         })
+    }
 
+    fun getVehicleType(context: Context, makeName: String, modelyear:String, vehicleType:String) {
+        api = Constants.getApi()
+        val year:Int = modelyear.toInt()
+        api.getVehicleType(makeName, year, vehicleType, Constants.FORMAT).enqueue(object : Callback<VehicleTypeResult> {
+            override fun onResponse(call: Call<VehicleTypeResult>, response: Response<VehicleTypeResult>) {
+                val data: VehicleTypeResult? = response.body()
+                this@VehicleViewModel.vehicleTypeLiveData.postValue(data)
+            }
+
+            override fun onFailure(call: Call<VehicleTypeResult>, t: Throwable) {
+                Toast.makeText(context, "An error has occurred", Toast.LENGTH_LONG).show()
+            }
+
+        })
     }
 
 
