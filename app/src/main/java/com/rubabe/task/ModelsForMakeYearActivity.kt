@@ -18,7 +18,7 @@ class ModelsForMakeYearActivity : AppCompatActivity() {
     private lateinit var binding: ActivityModelsForMakeYearBinding
     lateinit var viewModel: VehicleViewModel
     private var manufacturerName = arrayListOf("mercedes","tesla", "bmw")
-    private var modelYear = arrayListOf(2001, 2002, 2003)
+    private var modelYear = arrayListOf(2001, 2002, 2003, 2013)
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

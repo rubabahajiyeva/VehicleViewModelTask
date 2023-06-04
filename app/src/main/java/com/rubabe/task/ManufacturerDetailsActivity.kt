@@ -28,7 +28,7 @@ class ManufacturerDetailsActivity : AppCompatActivity() {
             viewModel.getManufacturerDetails(this, binding.carTypeEditText.text.toString())
         }
 
-        viewModel.carManufacturerLiveData.observe(this, Observer { CarManufacturerDetails ->
+        viewModel.carManufacturerLiveData.observe(this, Observer { VehicleManufacturerDetails ->
             binding.manufacturerDetailsRecyclerRow.adapter = viewModel.carManufacturerLiveData.value?.Results?.let {
                 ManufacturerDetailsAdapter(
                     it
